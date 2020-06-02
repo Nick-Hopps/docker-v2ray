@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  certbot:
+    image: "${CERTBOT_VERSION}"
+    container_name: CertBOT
+    networks:
+      - base
+    ports:
+      - "80:80"
+    volumes:
+      - ./etc/certbot:/etc/letsencrypt
+      - ./log/certbot:/var/log/letsencrypt
+      - ./www:/var/www/html
+    environment:
+      TZ: ${TZ}
+    command: certonly --standalone -m ${EMAIL} --agree-tos --no-eff-email --force-renewal -d ${DOMAIN} #--dry-run #--staging
+    restart: on-failure
+
+  nginx:
+    image: "${NGINX_VERSION}"
+    container_name: NGINX
+    networks:
+      - base
+    volumes:
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./etc/nginx/conf.d:/etc/nginx/conf.d
+      - ./log/nginx:/var/log/nginx
+      - ./www:/var/www/html
+    environment:
+      TZ: ${TZ}
+    restart: on-failure
+
+  haproxy:
+    image: "${HAPROXY_VERSION}"
+    container_name: HAProxy
+    networks:
+      - base
+    ports:
+      - "443:443"
+    depends_on:
+      - nginx
+    volumes:
+      - ./etc/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+      - ./etc/certbot:/etc/letsencrypt
+    environment:
+      TZ: ${TZ}
+    restart: on-failure
+
+  v2ray:
+    image: "${V2RAY_VERSION}"
+    container_name: V2RAY
+    networks:
+      - base
+    volumes:
+      - ./etc/v2ray/config.json:/etc/v2ray/config.json
+      - ./log/v2ray:/var/log/v2ray
+    environment:
+      TZ: ${TZ}
+    restart: on-failure
+
+networks:
+  base:
