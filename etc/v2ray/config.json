@@ -1,24 +1,68 @@
 {
+    "log" : {
+        "access": "/var/log/v2ray/access.log",
+        "error": "/var/log/v2ray/error.log",
+        "loglevel": "warning"
+    },
+    "routing": {
+        "rules": [
+            {
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "blocked",
+                "type": "field"
+            },
+            {
+                "protocol": [
+                    "bittorrent"
+                ],
+                "outboundTag": "blocked",
+                "type": "field"
+            }
+        ]
+    },
+    "policy": {
+        "system": {
+            "statsInboundUplink": false,
+            "statsInboundDownlink": false
+        }
+    },
     "inbounds": [
         {
-            "protocol": "vmess",
             "listen": "0.0.0.0",
             "port": 8388,
+            "protocol": "vmess",
+            "streamSettings": {
+                "network": "tcp"
+            },
             "settings": {
                 "clients": [
                     {
-                        "id": "efb41fa9-700d-4c24-b681-2449a471bf89"
+                        "id": "efb41fa9-700d-4c24-b681-2449a471bf89",
+                        "alterId": 64
                     }
-                ]
+                ],
+                "disableInsecureEncryption": true
             },
-            "streamSettings": {
-                "network": "tcp"
+            "sniffing": {
+                "enabled": true,
+                "destOverride": [
+                    "http",
+                    "tls"
+                ]
             }
         }
     ],
     "outbounds": [
         {
-            "protocol": "freedom"
+            "protocol": "freedom",
+            "settings": {}
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "blocked"
         }
     ]
 }
