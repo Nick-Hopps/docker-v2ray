@@ -28,7 +28,7 @@
 └── docker-compose.yml        # docker-compose 配置
 ```
 
-需要把 `.env`，`deploy.sh`，`haproxy.cfg`，`default.conf` 中的 "example.com" 改成自己的域名，`.env` 中的 "test@test.com" 改成自己的邮箱
+部署前先把文件内所有的 `test.com` 替换成个人域名，`test@qq.com` 替换成个人邮箱
 
 ### 安装 docker-ce 和 docker-compose
 

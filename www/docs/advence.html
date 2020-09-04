@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>进阶教程 | V2RAY 配置指南</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="">
+    <link rel="preload" href="/docs/assets/css/0.styles.ac7c507b.css" as="style"><link rel="preload" href="/docs/assets/js/app.389062ae.js" as="script"><link rel="preload" href="/docs/assets/js/2.ad415b7a.js" as="script"><link rel="preload" href="/docs/assets/js/6.a8095d5d.js" as="script"><link rel="prefetch" href="/docs/assets/js/3.1f053fa9.js"><link rel="prefetch" href="/docs/assets/js/4.153d4a87.js"><link rel="prefetch" href="/docs/assets/js/5.9caf56f0.js"><link rel="prefetch" href="/docs/assets/js/7.a46f4d2f.js">
+    <link rel="stylesheet" href="/docs/assets/css/0.styles.ac7c507b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/docs/" class="home-link router-link-active"><!----> <span class="site-name">V2RAY 配置指南</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><a href="/docs/usage.html" class="sidebar-link">使用教程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/usage.html#windows" class="sidebar-link">Windows</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/usage.html#所需软件" class="sidebar-link">所需软件</a></li><li class="sidebar-sub-header"><a href="/docs/usage.html#软件配置" class="sidebar-link">软件配置</a></li></ul></li><li class="sidebar-sub-header"><a href="/docs/usage.html#macos" class="sidebar-link">MacOS</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/usage.html#所需软件-2" class="sidebar-link">所需软件</a></li><li class="sidebar-sub-header"><a href="/docs/usage.html#软件配置-2" class="sidebar-link">软件配置</a></li></ul></li><li class="sidebar-sub-header"><a href="/docs/usage.html#android" class="sidebar-link">Android</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/usage.html#所需软件-3" class="sidebar-link">所需软件</a></li><li class="sidebar-sub-header"><a href="/docs/usage.html#软件配置-3" class="sidebar-link">软件配置</a></li></ul></li><li class="sidebar-sub-header"><a href="/docs/usage.html#iphone-ipad" class="sidebar-link">iPhone/iPad</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/usage.html#所需软件-4" class="sidebar-link">所需软件</a></li><li class="sidebar-sub-header"><a href="/docs/usage.html#软件配置-4" class="sidebar-link">软件配置</a></li></ul></li></ul></li><li><a href="/docs/advence.html" aria-current="page" class="active sidebar-link">进阶教程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/advence.html#方案介绍" class="sidebar-link">方案介绍</a></li><li class="sidebar-sub-header"><a href="/docs/advence.html#部署方法" class="sidebar-link">部署方法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/docs/advence.html#安装-docker-ce-和-docker-compose" class="sidebar-link">安装 docker-ce 和 docker-compose</a></li><li class="sidebar-sub-header"><a href="/docs/advence.html#运行部署脚本" class="sidebar-link">运行部署脚本</a></li></ul></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="进阶教程"><a href="#进阶教程" class="header-anchor">#</a> 进阶教程</h1> <h2 id="方案介绍"><a href="#方案介绍" class="header-anchor">#</a> 方案介绍</h2> <p>此次部署使用的是 Vmess + TCP + TLS + Web 的方案，参考<a href="https://guide.v2fly.org/advanced/tcp_tls_web.html" target="_blank" rel="noopener noreferrer">新 V2Ray 白话文指南<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>中给出的配置，并将该套配置容器化，以便实现一键部署。其中 Vmess + TCP 是 V2ray 的默认配置，在这基础上对流量进行 TLS 加密，并配合一个 Web 页面进行伪装，以便实现速度和安全的平衡。</p> <p>该方案的工作流程：HAProxy 监听本地 443 端口，对收到的所有流量进行分流，其中 HTTP 流量转发到 Nginx，其他的 TCP 流量转发到 V2ray。</p> <h2 id="部署方法"><a href="#部署方法" class="header-anchor">#</a> 部署方法</h2> <p>首先下载配置文件：<a href="https://github.com/Nick-Hopps/docker-v2ray" target="_blank" rel="noopener noreferrer">docker-v2ray<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>配置的目录结构如下：</p> <div class="language- extra-class"><pre class="language-text"><code>├── certbot                   # crontab 定时任务
+├── deploy.sh                 # 部署脚本
+├── docker-compose.yml        # docker-compose 配置
+├── .env                      # 环境变量
+├── etc
+│   ├── haproxy
+│   │   └── haproxy.cfg       # haproxy 的配置
+│   ├── nginx
+│   │   ├── conf.d
+│   │   │   └── default.conf  # nginx 的配置         
+│   │   └── nginx.conf
+│   └── v2ray
+│       └── config.json       # v2ray 的配置
+└── www                       # 网站根目录
+</code></pre></div><p>需要把 <code>.env</code>，<code>deploy.sh</code>，<code>haproxy.cfg</code>，<code>default.conf</code> 中的 &quot;example.com&quot; 改成自己的域名，<code>.env</code> 中的 &quot;test@test.com&quot; 改成自己的邮箱，然后把整套配置文件上传至服务器的 <code>/root</code> 目录下，如果放到其他目录下，需要在 <code>certbot</code> 中更改 <code>cd /root/docker-v2ray</code> 为相对应的目录。</p> <h3 id="安装-docker-ce-和-docker-compose"><a href="#安装-docker-ce-和-docker-compose" class="header-anchor">#</a> 安装 docker-ce 和 docker-compose</h3> <ol><li>安装 docker-ce（以 Ubuntu 为例，其余发行版见官网文档）</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">curl</span> -fsSL https://get.docker.com -o get-docker.sh
+
+$ <span class="token function">sudo</span> <span class="token function">sh</span> get-docker.sh
+</code></pre></div><ol start="2"><li>安装 docker-compose（linux）</li></ol> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">sudo</span> <span class="token function">curl</span> -L <span class="token string">&quot;https://github.com/docker/compose/releases/download/1.25.5/docker-compose-<span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> -s<span class="token variable">)</span></span>-<span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> -m<span class="token variable">)</span></span>&quot;</span> -o /usr/local/bin/docker-compose
+
+$ <span class="token function">sudo</span> <span class="token function">chmod</span> +x /usr/local/bin/docker-compose
+</code></pre></div><h3 id="运行部署脚本"><a href="#运行部署脚本" class="header-anchor">#</a> 运行部署脚本</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">sudo</span> <span class="token function">sh</span> deploy.sh
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/docs/usage.html" class="prev">
+        使用教程
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/docs/assets/js/app.389062ae.js" defer></script><script src="/docs/assets/js/2.ad415b7a.js" defer></script><script src="/docs/assets/js/6.a8095d5d.js" defer></script>
+  </body>
+</html>

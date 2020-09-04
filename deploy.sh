@@ -1,14 +1,14 @@
 #!/bin/bash
 
 CRTDIR=etc/certbot/live
-DOMAIN=example.com
+DOMAIN=test.com
 
 # Clear logs
 [ "$(ls -A log)" ] && find log -name "*.log" -exec tee {} + </dev/null
 
 # 1st. Generate/Update certificates
 if [ -d ${CRTDIR} ]; then
-  docker-compose run --rm --entrypoint "certbot -q renew" certbot
+  docker-compose run --rm --entrypoint "certbot renew" certbot
 else
   docker-compose up certbot
 fi
