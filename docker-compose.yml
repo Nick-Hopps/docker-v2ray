@@ -25,7 +25,6 @@ services:
       - ./etc/nginx/conf.d:/etc/nginx/conf.d
       - ./log/nginx:/var/log/nginx
       - ./www:/var/www/html
-      - ./blog:/var/www/blog
     environment:
       TZ: ${TZ}
     restart: on-failure
